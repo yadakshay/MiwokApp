@@ -17,15 +17,17 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
         super(fm);
     }
 
+    private String tabTitles[] = new String[]{"Numbers", "Family", "Colors", "Phrases"};
+
     @Override
     public Fragment getItem(int position) {
         if (position == 0) {
             return new NumbersFragment();
-        } else if (position == 1){
+        } else if (position == 1) {
             return new FamilyFragment();
         } else if (position == 2) {
             return new ColorsFragment();
-        }else{
+        } else {
             return new PhrasesFragment();
         }
     }
@@ -33,5 +35,11 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         return 4;
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        // Generate title based on item position
+        return tabTitles[position];
     }
 }
